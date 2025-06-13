@@ -8,8 +8,13 @@ $gray-800: #343a40;
 
 // Override Bootstrap color system
 
-$orange: #bd5d38;
+$slate-primary: #495057;
+$slate-secondary: #343a40;
 
 // Override Bootstrap default state colors
 
-$primary: $orange;
+$primary: $slate-primary;
+$secondary: $slate-secondary;
+
+// Retain original orange variable (if referenced elsewhere)
+$orange: #bd5d38;
