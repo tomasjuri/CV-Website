@@ -1,0 +1,58 @@
+// Print-specific overrides
+
+@media print {
+    // Page size and margins
+    @page {
+        size: A4;
+        margin: 12mm;
+    }
+
+    // attempt to fit entire resume on a single page via scaling
+    body {
+        zoom: 0.8; // scale down to 80%
+    }
+
+    // ensure sidebar remains visible
+    #sideNav {
+        display: block !important;
+        position: static !important;
+        width: 20rem;
+    }
+
+    .container-fluid {
+        padding-left: 20rem; // account for sidebar width when static
+    }
+
+    // Hide the sidebar/navigation
+    .navbar-toggler { display: none !important; }
+
+    // Reset body padding introduced for sidebar/nav
+    body {
+        padding: 0 !important;
+        width: 100%;
+        font-size: 0.9rem;
+        color: #212529;
+        overflow: visible !important;
+    }
+
+    // Ensure sections don't break in half
+    .resume-section-content {
+        page-break-inside: avoid;
+    }
+
+    // Shrink headings / spacing
+    h2 {
+        margin-top: 0.6rem;
+        margin-bottom: 0.25rem;
+    }
+
+    hr {
+        display: none;
+    }
+
+    // Reduce profile image for print
+    .img-profile {
+        max-width: 3cm;
+        max-height: 3cm;
+    }
+} 

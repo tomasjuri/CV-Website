@@ -36,7 +36,9 @@
         "url": "https://github.com/StartBootstrap/startbootstrap-resume.git"
     },
     "dependencies": {
-        "bootstrap": "5.2.3"
+        "bootstrap": "5.2.3",
+        "jspdf": "^2.5.1",
+        "html2canvas": "^1.4.1"
     },
     "devDependencies": {
         "autoprefixer": "10.4.14",

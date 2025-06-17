@@ -46,6 +46,12 @@ html(lang='en')
                         a.nav-link.js-scroll-trigger(href='#skills') Skills
                     li.nav-item
                         a.nav-link.js-scroll-trigger(href='#interests') Interests
+                
+                // PDF Download Button - positioned at bottom of sidebar (temporarily hidden)
+                .mt-auto.mb-4.text-center(style='display: none;')
+                    button.btn.btn-outline-light.btn-sm(onclick='generatePDF()', style='font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase;')
+                        i.fas.fa-download.me-2
+                        | Download PDF
 
         // Page Content
         .container-fluid.p-0
@@ -334,8 +340,251 @@ html(lang='en')
                                 i.fas.fa-star
                             | Travelling & outdoor activities
 
+        // Hidden PDF Container for generation
+        #pdf-container.d-none(style='width: 210mm; height: 297mm; background: white; font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 9px; line-height: 1.3; position: relative; box-sizing: border-box; padding: 0; margin: 0;')
+            .pdf-layout(style='display: flex; height: 100%; position: relative;')
+                // Left sidebar - matching website's bg-primary color
+                .pdf-sidebar(style='width: 65mm; background: #bd5d38; color: white; padding: 12mm 6mm; box-sizing: border-box; display: flex; flex-direction: column; align-items: center;')
+                    // Profile image
+                    .pdf-profile-img(style='width: 35mm; height: 35mm; border-radius: 50%; background: #ccc; margin: 0 auto 10mm; background-image: url("assets/img/profile.jpg"); background-size: cover; background-position: center; border: 3px solid white;')
+                    
+                    // Navigation sections - only titles
+                    .pdf-nav-section(style='margin-bottom: 15mm; text-align: center;')
+                        .pdf-nav-title(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 12px; font-weight: 700; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: 0.05em;') About
+                    
+                    .pdf-nav-section(style='margin-bottom: 15mm; text-align: center;')
+                        .pdf-nav-title(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 12px; font-weight: 700; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: 0.05em;') Experience
+                    
+                    .pdf-nav-section(style='margin-bottom: 15mm; text-align: center;')
+                        .pdf-nav-title(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 12px; font-weight: 700; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: 0.05em;') Education
+                    
+                    .pdf-nav-section(style='margin-bottom: 15mm; text-align: center;')
+                        .pdf-nav-title(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 12px; font-weight: 700; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: 0.05em;') Awards & Certifications
+                    
+                    .pdf-nav-section(style='margin-bottom: 15mm; text-align: center;')
+                        .pdf-nav-title(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 12px; font-weight: 700; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: 0.05em;') Skills
+                    
+                    .pdf-nav-section(style='margin-bottom: 15mm; text-align: center;')
+                        .pdf-nav-title(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 12px; font-weight: 700; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: 0.05em;') Interests
+
+                // Right content - all the actual content
+                .pdf-content(style='flex: 1; padding: 12mm 10mm; box-sizing: border-box; background: white; overflow-y: auto;')
+                    // About Section
+                    .pdf-section(style='margin-bottom: 8mm;')
+                        .pdf-section-header(style='margin-bottom: 4mm;')
+                            h1.pdf-name(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 18px; font-weight: 700; color: #343a40; margin: 0 0 2mm 0; text-transform: uppercase;')
+                                | Tomáš 
+                                span(style='color: #bd5d38;') Juřica
+                            .pdf-contact-info(style='font-size: 9px; color: #6c757d; margin-bottom: 3mm; font-weight: 400;')
+                                | Prague & Brno, Czech Republic · +420 774 989 814 · 
+                                a(href='mailto:tomasjuri@gmail.com', style='color: #bd5d38; text-decoration: none;') tomasjuri@gmail.com
+                        .pdf-about-text(style='font-size: 10px; line-height: 1.5; color: #6c757d; text-align: justify; margin-bottom: 3mm;')
+                            | Computer-vision and machine-learning engineer focused on bringing cutting-edge CV and embedded-AI solutions from research to real-world products. Passionate life-long learner with solid academic background and hands-on experience designing, training and optimising deep-learning models for high-performance deployment. I actively leverage artificial intelligence tools (including generative AI) to maximise my productivity – efficiency is my key objective.
+                        .pdf-social-icons(style='margin-bottom: 4mm;')
+                            a(href='https://www.linkedin.com/in/tom%C3%A1%C5%A1-ju%C5%99ica-44727671/', style='color: #bd5d38; margin-right: 3mm; font-size: 8px;') LinkedIn Profile
+                            a(href='https://github.com/tomasjuri', style='color: #bd5d38; margin-right: 3mm; font-size: 8px;') GitHub Profile
+                    
+                    // Experience Section
+                    .pdf-section(style='margin-bottom: 8mm;')
+                        h2.pdf-section-title(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 14px; font-weight: 700; color: #343a40; margin: 0 0 4mm 0; text-transform: uppercase; letter-spacing: 0.05em;') Experience
+                        
+                        .pdf-job(style='margin-bottom: 5mm;')
+                            .pdf-job-header(style='display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1mm;')
+                                h3.pdf-job-title(style='font-size: 11px; font-weight: 700; color: #343a40; margin: 0;') Machine Learning Engineer
+                                .pdf-job-date(style='font-size: 9px; color: #bd5d38; font-weight: 700;') Mar 2019 – Present
+                            .pdf-job-company(style='font-size: 10px; color: #6c757d; margin-bottom: 2mm; font-weight: 600;') Veracity Protocol
+                            .pdf-job-desc(style='font-size: 9px; line-height: 1.4; color: #6c757d; text-align: justify;') I developed and trained machine-learning algorithms for physical-object identification and verification. Specialized in PCB defect-detection, creating CNNs for visual inspection and optimizing models with TensorRT and ONNX. Led delivery of custom camera-scanner project for US client.
+                        
+                        .pdf-job(style='margin-bottom: 5mm;')
+                            .pdf-job-header(style='display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1mm;')
+                                h3.pdf-job-title(style='font-size: 11px; font-weight: 700; color: #343a40; margin: 0;') Computer Vision Researcher
+                                .pdf-job-date(style='font-size: 9px; color: #bd5d38; font-weight: 700;') Jan 2017 – Feb 2019
+                            .pdf-job-company(style='font-size: 10px; color: #6c757d; margin-bottom: 2mm; font-weight: 600;') Innovatrics
+                            .pdf-job-desc(style='font-size: 9px; line-height: 1.4; color: #6c757d; text-align: justify;') R&D team member focusing on ML models and datasets for face-recognition. Contributed to automated visual inspection projects using Mask R-CNN for IC card defect segmentation.
+                        
+                        .pdf-job(style='margin-bottom: 5mm;')
+                            .pdf-job-header(style='display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1mm;')
+                                h3.pdf-job-title(style='font-size: 11px; font-weight: 700; color: #343a40; margin: 0;') Computer Vision Engineer
+                                .pdf-job-date(style='font-size: 9px; color: #bd5d38; font-weight: 700;') Jul 2016 – Dec 2017
+                            .pdf-job-company(style='font-size: 10px; color: #6c757d; margin-bottom: 2mm; font-weight: 600;') NXP Semiconductors
+                            .pdf-job-desc(style='font-size: 9px; line-height: 1.4; color: #6c757d; text-align: justify;') Implemented and optimized computer-vision algorithms for embedded processors (i.MX6, i.MX8). Achieved state-of-the-art real-time stereo-vision performance on embedded GPGPU.
+                    
+                    // Education Section
+                    .pdf-section(style='margin-bottom: 8mm;')
+                        h2.pdf-section-title(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 14px; font-weight: 700; color: #343a40; margin: 0 0 4mm 0; text-transform: uppercase; letter-spacing: 0.05em;') Education
+                        
+                        .pdf-edu(style='margin-bottom: 4mm;')
+                            .pdf-job-header(style='display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1mm;')
+                                h3.pdf-job-title(style='font-size: 11px; font-weight: 700; color: #343a40; margin: 0;') Brno University of Technology, Faculty of Information Technology
+                                .pdf-job-date(style='font-size: 9px; color: #bd5d38; font-weight: 700;') Sep 2016 – Jun 2019
+                            .pdf-job-company(style='font-size: 10px; color: #6c757d; margin-bottom: 2mm; font-weight: 600;') Master of Science – Embedded Systems
+                            .pdf-job-desc(style='font-size: 9px; line-height: 1.4; color: #6c757d;') Thesis: Machine-learning visual inspection and defect-detection in manufacturing.
+                        
+                        .pdf-edu(style='margin-bottom: 4mm;')
+                            .pdf-job-header(style='display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1mm;')
+                                h3.pdf-job-title(style='font-size: 11px; font-weight: 700; color: #343a40; margin: 0;') Brno University of Technology, Faculty of Information Technology
+                                .pdf-job-date(style='font-size: 9px; color: #bd5d38; font-weight: 700;') Sep 2013 – Jun 2016
+                            .pdf-job-company(style='font-size: 10px; color: #6c757d; margin-bottom: 2mm; font-weight: 600;') Bachelor of Science – Computer Science
+                            .pdf-job-desc(style='font-size: 9px; line-height: 1.4; color: #6c757d;') Bachelor thesis: "Vehicle speed measurement using a stationary camera". I joined the faculty's research team and contributed to the development of a computer-vision system for measuring vehicle speeds.
+                    
+                    // Awards & Certifications Section
+                    .pdf-section(style='margin-bottom: 8mm;')
+                        h2.pdf-section-title(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 14px; font-weight: 700; color: #343a40; margin: 0 0 4mm 0; text-transform: uppercase; letter-spacing: 0.05em;') Awards & Certifications
+                        .pdf-awards-list(style='font-size: 8px; line-height: 1.4;')
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/verify/2NOKQ72S2ED6', style='color: #bd5d38; text-decoration: none;') Generative AI with Large Language Models – DeepLearning.AI & AWS (Jun 2025)
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/certificate/KZD3HZTSS9GC', style='color: #bd5d38; text-decoration: none;') Apply Generative Adversarial Networks (GANs)
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/certificate/ZVL35V62ZFWW', style='color: #bd5d38; text-decoration: none;') Build Better Generative Adversarial Networks (GANs)
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/specialization/certificate/J5EWKGF9MKMM', style='color: #bd5d38; text-decoration: none;') Generative Adversarial Networks (GANs)
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/specialization/certificate/2HSJVKCZHAZU', style='color: #bd5d38; text-decoration: none;') Natural Language Processing Specialization – DeepLearning.AI
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/certificate/F7MLFF77DGMP', style='color: #bd5d38; text-decoration: none;') Build Basic Generative Adversarial Networks (GANs)
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/certificate/ULHATSKW6462', style='color: #bd5d38; text-decoration: none;') Natural Language Processing with Attention Models
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/certificate/S5WLHN8J2ZN2', style='color: #bd5d38; text-decoration: none;') Natural Language Processing with Sequence Models
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/certificate/NMQWN4NUUE8W', style='color: #bd5d38; text-decoration: none;') Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/verify/J9253SX2YDTR?utm_source=link', style='color: #bd5d38; text-decoration: none;') Natural Language Processing with Classification and Vector Spaces – DeepLearning.AI (Sep 2020)
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/certificate/BEESXG38ZGX2', style='color: #bd5d38; text-decoration: none;') Natural Language Processing with Probabilistic Models
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/specialization/4K3SVNECJ4FS', style='color: #bd5d38; text-decoration: none;') Deep Learning Specialization – DeepLearning.AI
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/verify/HN3F73SHXWVV', style='color: #bd5d38; text-decoration: none;') Sequence Models – DeepLearning.AI (Jan 2019)
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/verify/QDR6FTRCDDNB', style='color: #bd5d38; text-decoration: none;') Convolutional Neural Networks – DeepLearning.AI (Dec 2018)
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/verify/WMBXAAGRZ7CH', style='color: #bd5d38; text-decoration: none;') Improving Deep Neural Networks – DeepLearning.AI (Dec 2018)
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/verify/HKSZ886X7MH4', style='color: #bd5d38; text-decoration: none;') Neural Networks and Deep Learning
+                            .pdf-award-item(style='margin-bottom: 1.5mm; color: #6c757d;')
+                                i.fas.fa-award(style='color: #ffc107; margin-right: 2mm;')
+                                a(href='https://www.coursera.org/account/accomplishments/verify/MEJE2WQPCHZ7', style='color: #bd5d38; text-decoration: none;') Structuring Machine Learning Projects
+                    
+                    // Skills Section
+                    .pdf-section(style='margin-bottom: 8mm;')
+                        h2.pdf-section-title(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 14px; font-weight: 700; color: #343a40; margin: 0 0 4mm 0; text-transform: uppercase; letter-spacing: 0.05em;') Skills
+                        
+                        .pdf-skills-subsection(style='margin-bottom: 4mm;')
+                            h3.pdf-skills-subtitle(style='font-size: 10px; font-weight: 600; color: #6c757d; margin: 0 0 2mm 0; text-transform: uppercase;') Programming Languages & Tools
+                            .pdf-skills-icons(style='display: flex; flex-wrap: wrap; gap: 3mm; margin-bottom: 3mm; font-size: 16px; color: #6c757d;')
+                                i.fab.fa-python
+                                i.fab.fa-docker  
+                                i.fab.fa-linux
+                                i.fab.fa-aws
+                                i.fab.fa-github
+                                i.fab.fa-git-alt
+                                i.fab.fa-node-js
+                                i.fab.fa-react
+                                i.fab.fa-nvidia
+                        
+                        .pdf-skills-subsection(style='margin-bottom: 4mm;')
+                            h3.pdf-skills-subtitle(style='font-size: 10px; font-weight: 600; color: #6c757d; margin: 0 0 2mm 0; text-transform: uppercase;') Key Competencies
+                            .pdf-skills-list(style='font-size: 8px; line-height: 1.4; color: #6c757d;')
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | Deep Learning – TensorFlow, Keras, PyTorch, ONNX, TensorRT
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | Computer Vision – OpenCV, Image Segmentation, Object Detection, Camera Calibration, Stereo Vision
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | Programming – Python, C/C++, CUDA, OpenCL, Bash, Git
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | Dev & Ops – Docker, Linux, AWS, Agile / Scrum
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | ML Engineering – FastAPI, Flask (REST inference APIs)
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | Classical ML & Data – scikit-learn, pandas, NumPy
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | Edge Deployment – NVIDIA Jetson SDK, DeepStream
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | Infrastructure – Docker Compose, AWS S3 / Lambda / SageMaker
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | GenAI – Hugging Face Transformers, Diffusers
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | Detection & Segmentation – YOLO, Mask R-CNN
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | Computer Graphics – OpenGL, Vulkan
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | C/C++ Build – CMake, Conan
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-check(style='color: #28a745; margin-right: 2mm;')
+                                    | MATLAB – Data processing & prototyping
+                        
+                        .pdf-skills-subsection(style='margin-bottom: 4mm;')
+                            h3.pdf-skills-subtitle(style='font-size: 10px; font-weight: 600; color: #6c757d; margin: 0 0 2mm 0; text-transform: uppercase;') Languages
+                            .pdf-skills-list(style='font-size: 8px; line-height: 1.4; color: #6c757d;')
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-language(style='color: #17a2b8; margin-right: 2mm;')
+                                    | English – C1 (Advanced)
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-language(style='color: #17a2b8; margin-right: 2mm;')
+                                    | Czech – Native
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-language(style='color: #17a2b8; margin-right: 2mm;')
+                                    | German – B2 (Upper-intermediate)
+                                .pdf-skill-item(style='margin-bottom: 1mm;')
+                                    i.fas.fa-language(style='color: #17a2b8; margin-right: 2mm;')
+                                    | Spanish – A1–A2 (Beginner)
+                    
+                    // Interests Section
+                    .pdf-section
+                        h2.pdf-section-title(style='font-family: "Saira Extra Condensed", sans-serif; font-size: 14px; font-weight: 700; color: #343a40; margin: 0 0 4mm 0; text-transform: uppercase; letter-spacing: 0.05em;') Interests
+                        .pdf-skills-list(style='font-size: 8px; line-height: 1.4; color: #6c757d;')
+                            .pdf-skill-item(style='margin-bottom: 1mm;')
+                                i.fas.fa-star(style='color: #ffc107; margin-right: 2mm;')
+                                | Machine learning & artificial intelligence
+                            .pdf-skill-item(style='margin-bottom: 1mm;')
+                                i.fas.fa-star(style='color: #ffc107; margin-right: 2mm;')
+                                | Computer vision & new technologies
+                            .pdf-skill-item(style='margin-bottom: 1mm;')
+                                i.fas.fa-star(style='color: #ffc107; margin-right: 2mm;')
+                                | 3D printing & CAD design – built my own open-source 3D printer from hobby-shop parts; enjoy designing hardware parts such as camera and phone holders
+                            .pdf-skill-item(style='margin-bottom: 1mm;')
+                                i.fas.fa-star(style='color: #ffc107; margin-right: 2mm;')
+                                | Sports – jogging, cycling & weightlifting
+                            .pdf-skill-item(style='margin-bottom: 1mm;')
+                                i.fas.fa-star(style='color: #ffc107; margin-right: 2mm;')
+                                | Travelling & outdoor activities
+
         // Bootstrap core JS
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
+        
+        // PDF Generation Libraries
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js')
 
         // Core theme JS
         script(src='js/scripts.js')
