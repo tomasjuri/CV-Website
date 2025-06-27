@@ -1,0 +1,5 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- TJ Text with transparent background, using website's heading font -->
+  <text x="32" y="44" font-family="Saira Extra Condensed, Arial, sans-serif" font-size="32" font-weight="700" 
+        text-anchor="middle" fill="#6c757d">TJ</text>
+</svg> 
