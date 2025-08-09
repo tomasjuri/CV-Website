@@ -14,23 +14,26 @@
     "badges": [
       "Python",
       "C++",
-      "TensorFlow",
       "PyTorch",
+      "TensorFlow",
       "OpenCV",
-      "Computer Vision",
-      "pandas",
       "NumPy",
+      "pandas",
       "TensorRT",
       "ONNX",
       "NVIDIA Jetson",
-      "Docker",
-      "AWS",
-      "MongoDB",
-      "Flask",
       "FastAPI",
+      "Flask",
+      "Docker",
+      "Docker Compose",
       "AWS",
+      "S3",
+      "SageMaker",
+      "HDR pipelines",
+      "MongoDB",
       "Linux",
-      "Git"
+      "Git",
+      "Grafana"
     ]
   },
   {
@@ -47,13 +50,19 @@
       "Python",
       "TensorFlow",
       "PyTorch",
-      "Caffe",
+      "Keras",
+      "Face recognition",
+      "Biometric identification",
+      "Computer Vision",
+      "Automated visual inspection",
+      "Defect detection",
       "OpenCV",
-      "Mask R-CNN",
-      "U-Net",
       "NumPy",
       "pandas",
       "scikit-learn",
+      "TensorBoard",
+      "Mask R-CNN",
+      "U-Net",
       "Docker",
       "Linux",
       "Git"
@@ -75,9 +84,11 @@
       "OpenCV",
       "Stereo Vision",
       "3D Reconstruction",
-      "Embedded",
       "CMake",
-      "Git"
+      "Linux",
+      "Bash",
+      "Git",
+      "Cross-compilation"
     ]
   }
 ]
