@@ -3,6 +3,7 @@
     "id": "veracity",
     "title": "Machine Learning Engineer",
     "company": "Veracity Protocol",
+    "companyUrl": "https://veracityprotocol.org/",
     "date": "Mar 2019 – Jul 2025",
     "description": [
       "I developed and deployed cutting-edge AI solutions for visual verification and authentication of physical objects, specializing in computer vision models for PCB manipulation analysis and collectible item authentication. My expertise spans the entire ML pipeline from data processing and dataset preparation to advanced model training for material and ID card authenticity verification.",
@@ -41,6 +42,7 @@
     "id": "innovatrics",
     "title": "Computer Vision & Machine Learning Engineer",
     "company": "Innovatrics",
+    "companyUrl": "https://www.innovatrics.com/",
     "date": "Jan 2017 – Feb 2019",
     "description": [
         "As a core member of the AI research team, I contributed to the development of state-of-the-art face recognition algorithms and biometric identification systems using TensorFlow, PyTorch, and Caffe frameworks. My responsibilities encompassed the entire machine learning workflow, from designing robust data pipelines and curating high-quality datasets to training and optimizing advanced AI algorithms for production deployment.",
@@ -73,6 +75,7 @@
     "id": "nxp",
     "title": "Computer Vision Engineer",
     "company": "NXP Semiconductors",
+    "companyUrl": "https://www.nxp.com/",
     "date": "Jul 2016 – Dec 2017",
     "description": [
         "My main responsibility was the implementation and optimization of computer-vision algorithms for embedded processors such as i.MX6 and i.MX8, primarily targeting ADAS applications. I focused on developing efficient algorithms using OpenCL (GPU) that could leverage the limited computational resources of embedded systems while integrating with camera interfaces.",

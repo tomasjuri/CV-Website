@@ -109,7 +109,11 @@ html(lang='en')
                         .d-flex.flex-column.flex-md-row.justify-content-between.mb-5
                             .flex-grow-1
                                 h3.mb-0 #{job.title}
-                                .subheading.mb-3 #{job.company}
+                                if job.companyUrl
+                                    .subheading.mb-3
+                                        a(href=job.companyUrl, target='_blank', rel='noopener') #{job.company}
+                                else
+                                    .subheading.mb-3 #{job.company}
                                 if job.badges && job.badges.length
                                     .tech-badges.mt-2
                                         each tech in job.badges
