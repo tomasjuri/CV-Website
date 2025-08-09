@@ -80,35 +80,21 @@ html(lang='en')
                .resume-section-content
                     h2.mb-5 Experience
 
-                    //==== Veracity Protocol ====
-                    .d-flex.flex-column.flex-md-row.justify-content-between.mb-5
-                        .flex-grow-1
-                            h3.mb-0 Machine Learning Engineer
-                            .subheading.mb-3 Veracity Protocol
-                            p
-                                | I developed and trained machine-learning algorithms for physical-object identification and verification, including ID cards, passports, banknotes and collectibles. I specialised in PCB defect-detection, creating CNNs for visual inspection and segmentation and optimising models with TensorRT and ONNX for high-performance inference. I also led the delivery of a key project for a US client, building a custom camera-scanner for tracking and verifying collectible items.
-                        .flex-shrink-0
-                            span.text-primary Mar 2019 – Jul 2025
-
-                    //==== Innovatrics ====
-                    .d-flex.flex-column.flex-md-row.justify-content-between.mb-5
-                        .flex-grow-1
-                            h3.mb-0 Computer Vision Researcher
-                            .subheading.mb-3 Innovatrics
-                            p
-                                | At Innovatrics I was a member of the R&D team, primarily focusing on the preparation of machine-learning models and datasets for face-recognition and identification. I also actively contributed to projects aimed at bringing automated visual inspection into manufacturing, specifically leveraging the Mask R-CNN semantic-segmentation model to accurately segment defects on IC cards.
-                        .flex-shrink-0
-                            span.text-primary Jan 2017 – Feb 2019
-
-                    //==== NXP ====
-                    .d-flex.flex-column.flex-md-row.justify-content-between
-                        .flex-grow-1
-                            h3.mb-0 Computer Vision Engineer
-                            .subheading.mb-3 NXP Semiconductors
-                            p
-                                | My main responsibility was the implementation and optimisation of computer-vision algorithms for embedded processors such as i.MX6 and i.MX8. My biggest achievement was an optimised stereo-vision algorithm whose state-of-the-art real-time performance was achieved on an embedded GPGPU.
-                        .flex-shrink-0
-                            span.text-primary Jul 2016 – Dec 2017
+                    each job in experience
+                        .d-flex.flex-column.flex-md-row.justify-content-between.mb-5
+                            .flex-grow-1
+                                h3.mb-0 #{job.title}
+                                .subheading.mb-3 #{job.company}
+                                if job.badges && job.badges.length
+                                    .tech-badges.mt-2
+                                        each tech in job.badges
+                                            span.tech-badge #{tech}
+                                if job.description
+                                    - const paragraphs = Array.isArray(job.description) ? job.description : ((job.description || '').split('\n\n'))
+                                    each para in paragraphs
+                                        p!= para
+                            .flex-shrink-0
+                                span.text-primary #{job.date}
 
             hr.m-0
 

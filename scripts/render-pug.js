@@ -10,10 +10,22 @@ module.exports = function renderPug(filePath) {
     const srcPath = upath.resolve(upath.dirname(__filename), '../src');
 
     console.log(`### INFO: Rendering ${filePath} to ${destPath}`);
+    // Load shared JSON data (optional per template)
+    let experience = [];
+    try {
+        const experiencePath = upath.resolve(srcPath, 'data/experience.json');
+        if (fs.existsSync(experiencePath)) {
+            experience = JSON.parse(fs.readFileSync(experiencePath, 'utf8'));
+        }
+    } catch (err) {
+        console.warn('WARN: Failed to load experience.json:', err.message);
+    }
+
     const html = pug.renderFile(filePath, {
         doctype: 'html',
         filename: filePath,
-        basedir: srcPath
+        basedir: srcPath,
+        experience
     });
 
     const destPathDirname = upath.dirname(destPath);
