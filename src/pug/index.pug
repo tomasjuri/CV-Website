@@ -21,6 +21,31 @@ html(lang='en')
 
         // Core theme CSS (includes Bootstrap)
         link(href='css/styles.css', rel='stylesheet')
+        // Inline critical styles for badges to ensure GitHub Pages builds render correctly
+        style.
+            .tech-badges {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.4rem;
+                margin-bottom: 0.9rem;
+            }
+            .tech-badge {
+                display: inline-block;
+                font-size: 0.75rem;
+                color: #6c757d;
+                background: #f1f3f5;
+                padding: 0.25rem 0.6rem;
+                border-radius: 999px;
+                border: 1px solid #e9ecef;
+                white-space: nowrap;
+            }
+            @media (prefers-color-scheme: dark) {
+                .tech-badge {
+                    color: #dee2e6;
+                    background: #2b3035;
+                    border-color: #343a40;
+                }
+            }
 
     body#page-top
 
