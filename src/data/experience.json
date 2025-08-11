@@ -6,11 +6,12 @@
     "companyUrl": "https://veracityprotocol.org/",
     "date": "Mar 2019 – Jul 2025",
     "description": [
-      "I developed and deployed cutting-edge AI solutions for visual verification and authentication of physical objects, specializing in computer vision models for PCB manipulation analysis and collectible item authentication. My expertise spans the entire ML pipeline from data processing and dataset preparation to advanced model training for material and ID card authenticity verification.",
-      "I led the development and deployment of a <a href=\"https://x.com/VeracityProtocl/status/1776279388234915880\" target=\"_blank\" class=\"text-primary\">large-scale hardware scanner solution</a> for collectible cards authentication in warehouse environments, managing the complete project lifecycle including shipping, integration, remote maintenance, and monitoring. I presented solutions for PCB authentication and physical tampering detection at customer conference in San Francisco, demonstrating the commercial impact of our technology.",
-      "I created extensive datasets and managed large-scale data collection efforts for training authentication models using Pandas for data processing and MongoDB for dataset management. My work involved implementing sophisticated data augmentation and filtration pipelines using Albumentations framework to ensure high-quality training data for various authentication tasks.",
-      "My technical optimization work included developing and optimizing deep learning models using EfficientNet and ResNet architectures, then optimizing them with TensorRT and ONNX for high-performance inference, and specifically optimizing code for NVIDIA Jetson embedded platforms, gaining extensive experience with this edge computing ecosystem. I designed robust camera integration systems for production environments.",
-      "Utilizing my hardware skills, I designed and manufactured custom camera holders and mechanical parts to industrialize our solutions. I oversaw hardware design and deployment in customer production facilities with comprehensive remote maintenance and monitoring capabilities, bridging the gap between research prototypes and production-ready systems."
+      "Veracity Protocol develops computer vision algorithms for visual verification and authentication of physical objects based on their microstructure. You capture a photo of an ID card and it tells you if it's authentic.",
+      "As a member of the AI team, I primarily researched, developed and deployed deep learning models (like ResNet, VGG, ArcFace, transformer-based models, as well as custom architectures). Being a startup, my expertise covered the entire ML pipeline from data processing and dataset preparation to deep learning model training, deployment, and integration. I also have experience with project ownership, deployments for customers, and maintenance and updating (Docker, AWS, S3, Grafana, etc.).",
+      "One of my biggest projects was leading the development and deployment of a <a href='https://x.com/VeracityProtcl/status/1776279388234915880' target='_blank' class='text-primary'>large-scale hardware scanner solution</a> for collectible cards authentication for a Fortune 500 US customer, managing the complete project lifecycle.",
+      "I also presented solutions for PCB authentication and physical tampering detection at a customer conference in San Francisco, demonstrating the commercial impact of our technology and successfully delivering the POC.",
+      "I regularly created extensive datasets and managed large-scale data collection efforts for training AI models. My work also involved implementing data augmentation and smart filtration pipelines to ensure high data quality.",
+      "I optimized models with TensorRT and ONNX for high-performance inference and specifically optimized code for NVIDIA Jetson embedded platforms. I designed camera systems for production environments. Utilizing my hardware skills, I built a variety of hardware camera solutions running our computer vision pipelines at customers' premises."
     ],
     "badges": [
       "Python",
@@ -29,9 +30,8 @@
       "Docker Compose",
       "AWS",
       "S3",
-      "SageMaker",
-      "HDR pipelines",
-      "Camera calibration",
+      "HDR Pipeline",
+      "Camera Calibration",
       "MongoDB",
       "Linux",
       "Git",
@@ -45,20 +45,20 @@
     "companyUrl": "https://www.innovatrics.com/",
     "date": "Jan 2017 – Feb 2019",
     "description": [
-        "As a core member of the AI research team, I contributed to the development of state-of-the-art face recognition algorithms and biometric identification systems using TensorFlow, PyTorch, and Caffe frameworks. My responsibilities encompassed the entire machine learning workflow, from designing robust data pipelines and curating high-quality datasets to training and optimizing advanced AI algorithms for production deployment.",
-        "I played a key role in transitioning computer vision technology from research to manufacturing applications, with a particular focus on automated visual inspection systems. My most significant contribution was implementing and optimizing Mask R-CNN semantic segmentation models for defect detection in manufacturing processes, specifically for precision quality control of ID cards.",
-        "This work involved extensive development of segmentation and detection algorithms and creating custom dataset management tools and annotation frameworks specifically designed for the unique requirements of our applications, contributing directly to the company's expansion into industrial AI applications."
+        "As a core member of the AI research team, I contributed to the development of state-of-the-art face recognition algorithms and biometric identification systems using deep learning frameworks (TensorFlow, PyTorch, Keras). My responsibilities encompassed the entire machine learning pipeline, from implementing data processing workflows and managing datasets to deep learning model optimization and deployment.",
+        "I then joined a new team focused on automatic visual inspection, where we transitioned computer vision technology from research to production and manufacturing applications. One of my key contributions was implementing and optimizing Mask R-CNN models for defect detection in ID cards or semantic segmentation of pavement cracks.",
+        "This work involved extensive development of CNN segmentation and detection algorithms, creating custom dataset management tools, and building custom annotation frameworks specifically designed for the given tasks."
     ],
     "badges": [
       "Python",
       "TensorFlow",
       "PyTorch",
       "Keras",
-      "Face recognition",
-      "Biometric identification",
+      "Face Recognition",
+      "Biometric Identification",
       "Computer Vision",
-      "Automated visual inspection",
-      "Defect detection",
+      "Automated Visual Inspection",
+      "Defect Detection",
       "OpenCV",
       "NumPy",
       "pandas",
