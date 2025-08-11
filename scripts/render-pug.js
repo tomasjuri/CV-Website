@@ -12,6 +12,7 @@ module.exports = function renderPug(filePath) {
     console.log(`### INFO: Rendering ${filePath} to ${destPath}`);
     // Load shared JSON data (optional per template)
     let experience = [];
+    let introParagraphs = [];
     try {
         const experiencePath = upath.resolve(srcPath, 'data/experience.json');
         if (fs.existsSync(experiencePath)) {
@@ -21,11 +22,26 @@ module.exports = function renderPug(filePath) {
         console.warn('WARN: Failed to load experience.json:', err.message);
     }
 
+    try {
+        const introPath = upath.resolve(srcPath, 'data/intro.json');
+        if (fs.existsSync(introPath)) {
+            const introData = JSON.parse(fs.readFileSync(introPath, 'utf8'));
+            if (Array.isArray(introData.leadParagraphs)) {
+                introParagraphs = introData.leadParagraphs;
+            } else if (typeof introData.lead === 'string') {
+                introParagraphs = introData.lead.split('\n\n');
+            }
+        }
+    } catch (err) {
+        console.warn('WARN: Failed to load intro.json:', err.message);
+    }
+
     const html = pug.renderFile(filePath, {
         doctype: 'html',
         filename: filePath,
         basedir: srcPath,
-        experience
+        experience,
+        introParagraphs
     });
 
     const destPathDirname = upath.dirname(destPath);

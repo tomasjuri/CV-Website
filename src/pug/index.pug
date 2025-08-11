@@ -90,8 +90,12 @@ html(lang='en')
                     .subheading.mb-5
                         | Prague & Brno, Czech Republic · +420 774 989 814 · 
                         a(href='mailto:tomasjuri@gmail.com') tomasjuri@gmail.com
-                    p.lead.mb-5
-                        | Computer-vision and machine-learning engineer focused on bringing cutting-edge CV and embedded-AI solutions from research to real-world products. Passionate life-long learner with solid academic background and hands-on experience designing, training and optimising deep-learning models for high-performance deployment. I actively leverage artificial intelligence tools (including generative AI) to maximise my productivity – efficiency is my key objective.
+                    if introParagraphs && introParagraphs.length
+                        each intro in introParagraphs
+                            p.lead.mb-4!= intro
+                    else
+                        p.lead.mb-5
+                            | Computer-vision and machine-learning engineer focused on bringing cutting-edge CV and embedded-AI solutions from research to real-world products. Passionate life-long learner with solid academic background and hands-on experience designing, training and optimising deep-learning models for high-performance deployment. I actively leverage artificial intelligence tools (including generative AI) to maximise my productivity – efficiency is my key objective.
                     .social-icons
                         a.social-icon(href='https://www.linkedin.com/in/tom%C3%A1%C5%A1-ju%C5%99ica-44727671/', target='_blank')
                             i.fab.fa-linkedin-in
