@@ -44,7 +44,7 @@ const CONTENT = {
         score: "98.9%",
         passed: true,
         images: {
-          render:  "img/layer20/render.png",
+          render:  "img/layer20/render.jpg",
           capture: "img/layer20/capture.jpg",
           overlay: "img/layer20/overlay.jpg",
         },
@@ -55,7 +55,7 @@ const CONTENT = {
         score: "98.3%",
         passed: true,
         images: {
-          render:  "img/layer30/render.png",
+          render:  "img/layer30/render.jpg",
           capture: "img/layer30/capture.jpg",
           overlay: "img/layer30/overlay.jpg",
         },
@@ -66,7 +66,7 @@ const CONTENT = {
         score: "96.0%",
         passed: true,
         images: {
-          render:  "img/layer40/render.png",
+          render:  "img/layer40/render.jpg",
           capture: "img/layer40/capture.jpg",
           overlay: "img/layer40/overlay.jpg",
         },
@@ -77,7 +77,7 @@ const CONTENT = {
         score: "98.5%",
         passed: true,
         images: {
-          render:  "img/layer50/render.png",
+          render:  "img/layer50/render.jpg",
           capture: "img/layer50/capture.jpg",
           overlay: "img/layer50/overlay.jpg",
         },
@@ -89,7 +89,7 @@ const CONTENT = {
         passed: false,
         failNote: "Print stopped.",
         images: {
-          render:  "img/layer55/render.png",
+          render:  "img/layer55/render.jpg",
           capture: "img/layer55/capture.jpg",
           overlay: "img/layer55/overlay.jpg",
         },
