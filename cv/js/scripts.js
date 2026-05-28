@@ -1,6 +1,6 @@
 /*!
 * Start Bootstrap - Tomáš Juřica - Resume v1.0.0 (https://tomasjuri.cz)
-* Copyright 2013-2025 Start Bootstrap
+* Copyright 2013-2026 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/tomasjurica-cv-website/blob/master/LICENSE)
 */
 //

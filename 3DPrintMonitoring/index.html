@@ -329,7 +329,7 @@
             const lb    = document.getElementById('lightbox');
             const lbImg = document.getElementById('lightbox-img');
 
-            document.querySelector('.page-content').addEventListener('click', e => {
+            document.querySelector('.container-fluid').addEventListener('click', e => {
                 const img = e.target.closest('.layer-images img');
                 if (!img) return;
                 lbImg.src = img.dataset.full || img.src;
