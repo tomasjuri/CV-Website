@@ -1,5 +1,50 @@
 [
   {
+    "id": "flo",
+    "title": "AI Engineer",
+    "company": "FLO",
+    "companyUrl": "https://www.weareflo.com/",
+    "date": "Q3 2025",
+    "description": [
+      "At FLO, I joined the manufacturing team as a Machine Learning Engineer to lead the development of computer vision solutions for visual inspection of a metal bending machine in a manufacturing process.",
+      "I led the design and implementation of the solution. It consisted of multiple custom deep learning models for anomaly (defect) detection, segmentation, and classification, integrated into a user interface for machine operators. The solution also included a data collection and annotation pipeline for continuous model improvement."
+    ],
+    "badges": [
+      "Python",
+      "C++",
+      "PyTorch",
+      "TensorFlow",
+      "OpenCV",
+      "pandas",
+      "FastAPI",
+      "Flask",
+      "Docker",
+      "Azure"
+    ]
+  },
+  {
+    "id": "3DPrintFailureDetection",
+    "title": "AI based solution for 3D print failure detection",
+    "company": "Freelance Project",
+    "companyUrl": "https://tomasjuri.cz/3DPrintMonitoring/",
+    "date": "Q1 2026",
+    "description": [
+      "As a 3D printing enthusiast, I identified a major weakness in consumer 3D printers: they have no feedback loop to detect print failures. I developed a computer vision solution that detects common failures such as spaghetti and layer shifts in real time, automatically pausing the printer to save time and material.",
+      "The solution is based on a custom deep learning model trained on a self-collected dataset of 3D prints. The model is optimized for real-time inference on a Raspberry Pi and can be easily integrated with existing 3D printers."
+    ],
+    "badges": [
+      "Python",
+      "C++",
+      "PyTorch",
+      "TensorFlow",
+      "OpenCV",
+      "Slic3r",
+      "GCODE",
+      "OpenGL",
+      "Raspberry Pi"
+    ]
+  },
+  {
     "id": "veracity",
     "title": "Machine Learning Engineer",
     "company": "Veracity Protocol",
